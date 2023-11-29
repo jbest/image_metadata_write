@@ -4,21 +4,18 @@ from pathlib import Path
 from PIL import Image
 
 
-input_path = 'test/FieldNotebook1_(BRIT-A-AR003-FN01)_1-646/'
+#input_path = 'test/FieldNotebook1_(BRIT-A-AR003-FN01)_1-646/'
 #input_path = 'test/small_batch/'
-output_path = 'test/out/'
+input_path = 'original_tiffs/**/'
+#output_path = 'test/out/'
+output_path = 'test/jpg_samples/'
 output_file_ext = 'jpg'
-images = glob.glob(input_path + '*.tif')
+print(input_path)
+images = glob.glob(input_path + '*.tif', recursive=True)
+print('images', images)
 
 # TODO - Make sure sort is correct
 images.sort()
-
-"""
-test = ['a','x', '4', '003', 'A']
-print(test)
-test.sort()
-print(test)
-"""
 
 page_counter = 0
 spread_width_min = 2800 # full spreads seem to all be 2855
@@ -35,7 +32,7 @@ for image_path in images:
         #spread.show()
         # Crop left page
         page_width = math.floor(spread_width/2)
-        page_width = page_width + (page_width *.05) # padding to crop past center of images
+        page_width = page_width + (page_width *.07) # padding to crop past center of images
         left = spread.crop((0,0,page_width,height))
         #print(spread_width)
         #left.show()
