@@ -2,20 +2,22 @@ import glob
 import math
 from pathlib import Path
 from PIL import Image
+import os
 
 
-input_path = 'test/FieldNotebook1_(BRIT-A-AR003-FN01)_1-646/'
+#input_path = 'test/FieldNotebook1_(BRIT-A-AR003-FN01)_1-646/'
 #input_path = 'test/small_batch/'
-#input_path = 'original_tiffs/**/'
+input_path = 'original_tiffs'
 #output_path = 'test/out/'
 output_path = 'test/jpg_samples/'
 output_file_ext = 'jpg'
 
 def repaginate_notebook(nb_dir_path=None):
-    images = glob.glob(nb_dir_path + '*.tif')
+    images = glob.glob(str(nb_dir_path) + '/' + '*.tif')
+    #print(images)
     # TODO - Make sure sort is correct
     images.sort()
-    print(images)
+    #print(images)
     page_counter = 0
     spread_width_min = 2800 # full spreads seem to all be 2855
     for image_path in images:
@@ -61,4 +63,22 @@ def repaginate_notebook(nb_dir_path=None):
             spread.save(image_out_path)
             page_counter +=1
 
-repaginate_notebook(nb_dir_path=input_path)
+#repaginate_notebook(nb_dir_path=input_path)
+#base_input_path = input_path
+
+# get fieldbook folder paths
+input_path = Path(input_path)
+dir_list = os.listdir(input_path)
+
+
+for item in dir_list:
+    path = Path(item)
+    path = input_path.joinpath(path)
+    #path = path.absolute()
+    #print(path.is_dir())
+    if path.is_dir():
+        print(path)
+        repaginate_notebook(nb_dir_path=path)
+    else:
+        print('not dir:', path)
+
