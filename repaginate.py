@@ -111,28 +111,15 @@ FN06 = {'directory':'FieldNotebook6(BRIT-A-AR003-FN06)_2379-2427', 'spread_width
 FN07 = {'directory':'FieldNotebook7(BRIT-A-AR003-FN07)_2774-3118', 'spread_width_min':2500, 'pad_l':0.12, 'pad_r':-0.13}
 FN08 = {'directory':'FieldNotebook8(BRIT-A-AR003-FN08)_3119-3693', 'spread_width_min':2500, 'pad_l':0.12, 'pad_r':-0.1}
 FN09 = {'directory':'FieldNotebook9(BRIT-A-AR003-FN09)_3694-4049', 'spread_width_min':2500, 'pad_l':0.1, 'pad_r':-0.1}
-FN10 = {'directory':'FieldNotebook10(BRIT-A-AR003-FN10)_4050-4374', 'spread_width_min':2500, 'pad_l':0.05, 'pad_r':0.05}
+FN10 = {'directory':'FieldNotebook10(BRIT-A-AR003-FN10)_4050-4374', 'spread_width_min':2500, 'pad_l':0.08, 'pad_r':0.02}
+FN11 = {'directory':'FieldNotebook11(BRIT-A-AR003-FN11)_4375-4956', 'spread_width_min':2500, 'pad_l':0.05, 'pad_r':0.05}
+FN12 = {'directory':'FieldNotebook12(BRIT-A-AR003-FN12)_4957-5133', 'spread_width_min':2400, 'pad_l':0.05, 'pad_r':0.05}
+FN13 = {'directory':'FieldNotebook13(BRIT-A-AR003-FN13)_5134-6102', 'spread_width_min':2400, 'pad_l':0.05, 'pad_r':0.05}
+FN14 = {'directory':'FieldNotebook14(BRIT-A-AR003-FN14)_8000-8218', 'spread_width_min':2600, 'pad_l':0.05, 'pad_r':0.02}
+FN15 = {'directory':'FieldNotebook15(BRIT-A-AR003-FN15)_15134-15380', 'spread_width_min':2600, 'pad_l':0.05, 'pad_r':0.05}
+FN16 = {'directory':'FieldNotebook16(BRIT-A-AR003-FN16)_15381-15481', 'spread_width_min':2600, 'pad_l':0.05, 'pad_r':0.05}
+FN17 = {'directory':'FieldNotebook17(BRIT-A-AR003-FN17)_15482-15616', 'spread_width_min':2400, 'pad_l':0.05, 'pad_r':0.05}
+FN18 = {'directory':'FieldNotebook18(BRIT-A-AR003-FN18)_15617-15725', 'spread_width_min':2400, 'pad_l':0.05, 'pad_r':0.05}
+FN19 = {'directory':'FieldNotebook19(BRIT-A-AR003-FN19)_15726-15950', 'spread_width_min':2400, 'pad_l':0.05, 'pad_r':0.05}
 #repaginate_notebook(nb_base_path='original_tiffs', nb_params=FN01)
-repaginate_notebook(nb_base_path='original_tiffs', nb_params=FN10)
-
-"""
-'FieldNotebook1_(BRIT-A-AR003-FN01)_1-646'
-'FieldNotebook2_(BRIT-A-AR003-FN02)_845-1103'
-'FieldNotebook3_(BRIT-A-AR003-FN03)_1117-1400'
-'FieldNotebook4(BRIT-A-AR003-FN04)_1834-2024'
-'FieldNotebook5(BRIT-A-AR003-FN05)_2025-2378'
-'FieldNotebook6(BRIT-A-AR003-FN06)_2379-2427'
-'FieldNotebook7(BRIT-A-AR003-FN07)_2774-3118'
-'FieldNotebook8(BRIT-A-AR003-FN08)_3119-3693'
-'FieldNotebook9(BRIT-A-AR003-FN09)_3694-4049'
-'FieldNotebook10(BRIT-A-AR003-FN10)_4050-4374'
-'FieldNotebook11(BRIT-A-AR003-FN11)_4375-4956'
-'FieldNotebook12(BRIT-A-AR003-FN12)_4957-5133'
-'FieldNotebook13(BRIT-A-AR003-FN13)_5134-6102'
-'FieldNotebook14(BRIT-A-AR003-FN14)_8000-8218'
-'FieldNotebook15(BRIT-A-AR003-FN15)_15134-15380'
-'FieldNotebook16(BRIT-A-AR003-FN16)_15381-15481'
-'FieldNotebook17(BRIT-A-AR003-FN17)_15482-15616'
-'FieldNotebook18(BRIT-A-AR003-FN18)_15617-15725'
-'FieldNotebook19(BRIT-A-AR003-FN19)_15726-15950'
-"""
+repaginate_notebook(nb_base_path='original_tiffs', nb_params=FN19)
