@@ -9,8 +9,11 @@ import os
 #input_path = 'test/small_batch/'
 input_path = 'original_tiffs'
 #output_path = 'test/out/'
-output_path = 'test/jpg_samples/'
-output_file_ext = 'jpg'
+#output_path = 'test/jpg_samples/'
+output_path = 'repaginated_tiffs/'
+
+#output_file_ext = 'jpg'
+output_file_ext = 'tif'
 
 def repaginate_notebook(nb_base_path=None, nb_params=None):
     nb_dir = Path(nb_params['directory'])
@@ -40,6 +43,10 @@ def repaginate_notebook(nb_base_path=None, nb_params=None):
         
         spread = Image.open(image_path)
         spread_width, height = spread.size
+        #notebook_dir = Path(notebook_ID)
+        image_out_path = Path(output_path) / notebook_ID
+        image_out_path.mkdir(parents=True, exist_ok=True)
+        print('image_out_path:', image_out_path)
         if spread_width > spread_width_min:
             #spread.show()
             page_width = math.floor(spread_width/2)
@@ -50,12 +57,12 @@ def repaginate_notebook(nb_base_path=None, nb_params=None):
             left = spread.crop((0,0,page_width_l,height))
             #print(spread_width)
             
-            image_out_path = Path(output_path)
+            #image_out_path = Path(output_path)
             image_out_name = notebook_ID + '_' + str(page_counter).zfill(3) + '.' + output_file_ext
-            image_out_path = image_out_path / image_out_name
-            print(image_out_path)
+            #image_out_path = image_out_path / image_out_name
+            print(image_out_path / image_out_name)
             #left.show()
-            left.save(image_out_path)
+            left.save(image_out_path / image_out_name)
             page_counter +=1
 
             # Crop right page
@@ -64,20 +71,20 @@ def repaginate_notebook(nb_base_path=None, nb_params=None):
             #print('page_width_r:', page_width_r, 'pad_r:', pad_r)
             right = spread.crop((spread_width - page_width_r,0,spread_width,height))
             #right.show()
-            image_out_path = Path(output_path)
+            #image_out_path = Path(output_path)
             image_out_name = notebook_ID + '_' + str(page_counter).zfill(3) + '.' + output_file_ext
-            image_out_path = image_out_path / image_out_name
-            print(image_out_path)
-            right.save(image_out_path)
+            #image_out_path = image_out_path / image_out_name
+            print(image_out_path / image_out_name)
+            right.save(image_out_path / image_out_name)
             page_counter +=1
         else:
             #image is narrow, probably front or back cover
             #spread.show()
-            image_out_path = Path(output_path)
+            #image_out_path = Path(output_path)
             image_out_name = notebook_ID + '_' + str(page_counter).zfill(3) + '.' + output_file_ext
-            image_out_path = image_out_path / image_out_name
-            print(image_out_path)
-            spread.save(image_out_path)
+            #image_out_path = image_out_path / image_out_name
+            print(image_out_path / image_out_name)
+            spread.save(image_out_path / image_out_name)
             page_counter +=1
 
 #repaginate_notebook(nb_dir_path=input_path)
@@ -122,7 +129,9 @@ FN17 = {'directory':'FieldNotebook17(BRIT-A-AR003-FN17)_15482-15616', 'spread_wi
 FN18 = {'directory':'FieldNotebook18(BRIT-A-AR003-FN18)_15617-15725', 'spread_width_min':2400, 'pad_l':0.05, 'pad_r':0.05}
 FN19 = {'directory':'FieldNotebook19(BRIT-A-AR003-FN19)_15726-15950', 'spread_width_min':2400, 'pad_l':0.05, 'pad_r':0.05}
 #repaginate_notebook(nb_base_path='original_tiffs', nb_params=FN01)
-repaginate_notebook(nb_base_path='original_tiffs', nb_params=FN11)
 
+#fn_list = [FN01,FN02,FN03,FN06,FN07,FN08,FN09,FN10,FN11,FN12,FN13,FN14,FN15,FN16,FN17,FN18,FN19]
+fn_list = [FN01,FN02]
 
-fn_list = [FN01,FN02,FN03,FN06,FN07,FN08,FN09,FN10,FN11,FN12,FN13,FN14,FN15,FN16,FN17,FN18,FN19]
+for notebook in fn_list:
+    repaginate_notebook(nb_base_path=input_path, nb_params=notebook)
