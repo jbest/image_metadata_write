@@ -108,10 +108,10 @@ FN03 = {'directory':'FieldNotebook3_(BRIT-A-AR003-FN03)_1117-1400', 'spread_widt
 #FN04 cropping not needed
 #FN05 cropping not needed
 FN06 = {'directory':'FieldNotebook6(BRIT-A-AR003-FN06)_2379-2427', 'spread_width_min':2700, 'pad':0.05}
-FN07 = {'directory':'FieldNotebook7(BRIT-A-AR003-FN07)_2774-3118', 'spread_width_min':2500, 'pad_l':0.12, 'pad_r':-0.13}
-FN08 = {'directory':'FieldNotebook8(BRIT-A-AR003-FN08)_3119-3693', 'spread_width_min':2500, 'pad_l':0.12, 'pad_r':-0.1}
-FN09 = {'directory':'FieldNotebook9(BRIT-A-AR003-FN09)_3694-4049', 'spread_width_min':2500, 'pad_l':0.1, 'pad_r':-0.1}
-FN10 = {'directory':'FieldNotebook10(BRIT-A-AR003-FN10)_4050-4374', 'spread_width_min':2500, 'pad_l':0.08, 'pad_r':0.02}
+FN07 = {'directory':'FieldNotebook7(BRIT-A-AR003-FN07)_2774-3118', 'spread_width_min':2500, 'pad_l':0.15, 'pad_r':0.00}
+FN08 = {'directory':'FieldNotebook8(BRIT-A-AR003-FN08)_3119-3693', 'spread_width_min':2500, 'pad_l':0.12, 'pad_r':0.02}
+FN09 = {'directory':'FieldNotebook9(BRIT-A-AR003-FN09)_3694-4049', 'spread_width_min':2500, 'pad_l':0.1, 'pad_r':0.00}
+FN10 = {'directory':'FieldNotebook10(BRIT-A-AR003-FN10)_4050-4374', 'spread_width_min':2500, 'pad_l':0.08, 'pad_r':0.05}
 FN11 = {'directory':'FieldNotebook11(BRIT-A-AR003-FN11)_4375-4956', 'spread_width_min':2500, 'pad_l':0.05, 'pad_r':0.05}
 FN12 = {'directory':'FieldNotebook12(BRIT-A-AR003-FN12)_4957-5133', 'spread_width_min':2400, 'pad_l':0.05, 'pad_r':0.05}
 FN13 = {'directory':'FieldNotebook13(BRIT-A-AR003-FN13)_5134-6102', 'spread_width_min':2400, 'pad_l':0.05, 'pad_r':0.05}
@@ -122,4 +122,4 @@ FN17 = {'directory':'FieldNotebook17(BRIT-A-AR003-FN17)_15482-15616', 'spread_wi
 FN18 = {'directory':'FieldNotebook18(BRIT-A-AR003-FN18)_15617-15725', 'spread_width_min':2400, 'pad_l':0.05, 'pad_r':0.05}
 FN19 = {'directory':'FieldNotebook19(BRIT-A-AR003-FN19)_15726-15950', 'spread_width_min':2400, 'pad_l':0.05, 'pad_r':0.05}
 #repaginate_notebook(nb_base_path='original_tiffs', nb_params=FN01)
-repaginate_notebook(nb_base_path='original_tiffs', nb_params=FN07)
+repaginate_notebook(nb_base_path='original_tiffs', nb_params=FN11)
