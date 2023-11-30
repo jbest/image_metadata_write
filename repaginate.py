@@ -46,7 +46,7 @@ def repaginate_notebook(nb_base_path=None, nb_params=None):
             
             # Crop left page
             page_width_l = page_width + (page_width * pad_l) # padding to crop past center of images
-            print('page_width_l:', page_width_l, 'pad_l:', pad_l)
+            #print('page_width_l:', page_width_l, 'pad_l:', pad_l)
             left = spread.crop((0,0,page_width_l,height))
             #print(spread_width)
             
@@ -61,7 +61,7 @@ def repaginate_notebook(nb_base_path=None, nb_params=None):
             # Crop right page
 
             page_width_r = page_width + (page_width * pad_r)
-            print('page_width_r:', page_width_r, 'pad_r:', pad_r)
+            #print('page_width_r:', page_width_r, 'pad_r:', pad_r)
             right = spread.crop((spread_width - page_width_r,0,spread_width,height))
             #right.show()
             image_out_path = Path(output_path)
@@ -123,3 +123,6 @@ FN18 = {'directory':'FieldNotebook18(BRIT-A-AR003-FN18)_15617-15725', 'spread_wi
 FN19 = {'directory':'FieldNotebook19(BRIT-A-AR003-FN19)_15726-15950', 'spread_width_min':2400, 'pad_l':0.05, 'pad_r':0.05}
 #repaginate_notebook(nb_base_path='original_tiffs', nb_params=FN01)
 repaginate_notebook(nb_base_path='original_tiffs', nb_params=FN11)
+
+
+fn_list = [FN01,FN02,FN03,FN06,FN07,FN08,FN09,FN10,FN11,FN12,FN13,FN14,FN15,FN16,FN17,FN18,FN19]
