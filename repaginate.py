@@ -111,7 +111,7 @@ FN06 = {'directory':'FieldNotebook6(BRIT-A-AR003-FN06)_2379-2427', 'spread_width
 FN07 = {'directory':'FieldNotebook7(BRIT-A-AR003-FN07)_2774-3118', 'spread_width_min':2500, 'pad_l':0.12, 'pad_r':-0.13}
 FN08 = {'directory':'FieldNotebook8(BRIT-A-AR003-FN08)_3119-3693', 'spread_width_min':2500, 'pad_l':0.12, 'pad_r':-0.1}
 FN09 = {'directory':'FieldNotebook9(BRIT-A-AR003-FN09)_3694-4049', 'spread_width_min':2500, 'pad_l':0.1, 'pad_r':-0.1}
-FN10 = {'directory':'FieldNotebook10(BRIT-A-AR003-FN10)_4050-4374', 'spread_width_min':2500, 'pad_l':0.05, 'pad_r':0.00}
+FN10 = {'directory':'FieldNotebook10(BRIT-A-AR003-FN10)_4050-4374', 'spread_width_min':2500, 'pad_l':0.05, 'pad_r':0.05}
 #repaginate_notebook(nb_base_path='original_tiffs', nb_params=FN01)
 repaginate_notebook(nb_base_path='original_tiffs', nb_params=FN10)
 
