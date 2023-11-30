@@ -4,11 +4,7 @@ from pathlib import Path
 from PIL import Image
 import os
 
-
-#input_path = 'test/FieldNotebook1_(BRIT-A-AR003-FN01)_1-646/'
-#input_path = 'test/small_batch/'
 input_path = 'original_tiffs'
-#output_path = 'test/out/'
 #output_path = 'test/jpg_samples/'
 output_path = 'repaginated_tiffs/'
 
@@ -20,12 +16,9 @@ def repaginate_notebook(nb_base_path=None, nb_params=None):
     nb_base_path = Path(nb_base_path)
     nb_dir_path = nb_base_path.joinpath(nb_dir)
     images = glob.glob(str(nb_dir_path) + '/' + '*.tif')
-    #print(images)
-    # TODO - Make sure sort is correct
     images.sort()
-    #print(images)
     pad = nb_params.get('pad')
-    #print('pad', pad)
+
     if pad:
         pad_l = pad
         pad_r = pad
@@ -33,7 +26,7 @@ def repaginate_notebook(nb_base_path=None, nb_params=None):
         pad_l = nb_params['pad_l']
         pad_r = nb_params['pad_r']        
     page_counter = 0
-    spread_width_min = nb_params['spread_width_min'] # full spreads seem to all be 2855
+    spread_width_min = nb_params['spread_width_min']
     for image_path in images:
         image_path = Path(image_path)
         image_name = image_path.stem
@@ -48,67 +41,35 @@ def repaginate_notebook(nb_base_path=None, nb_params=None):
         image_out_path.mkdir(parents=True, exist_ok=True)
         print('image_out_path:', image_out_path)
         if spread_width > spread_width_min:
-            #spread.show()
             page_width = math.floor(spread_width/2)
             
             # Crop left page
             page_width_l = page_width + (page_width * pad_l) # padding to crop past center of images
             #print('page_width_l:', page_width_l, 'pad_l:', pad_l)
             left = spread.crop((0,0,page_width_l,height))
-            #print(spread_width)
-            
-            #image_out_path = Path(output_path)
+
             image_out_name = notebook_ID + '_' + str(page_counter).zfill(3) + '.' + output_file_ext
-            #image_out_path = image_out_path / image_out_name
             print(image_out_path / image_out_name)
-            #left.show()
+
             left.save(image_out_path / image_out_name)
             page_counter +=1
 
             # Crop right page
-
             page_width_r = page_width + (page_width * pad_r)
             #print('page_width_r:', page_width_r, 'pad_r:', pad_r)
             right = spread.crop((spread_width - page_width_r,0,spread_width,height))
-            #right.show()
-            #image_out_path = Path(output_path)
             image_out_name = notebook_ID + '_' + str(page_counter).zfill(3) + '.' + output_file_ext
-            #image_out_path = image_out_path / image_out_name
             print(image_out_path / image_out_name)
             right.save(image_out_path / image_out_name)
             page_counter +=1
         else:
             #image is narrow, probably front or back cover
-            #spread.show()
-            #image_out_path = Path(output_path)
             image_out_name = notebook_ID + '_' + str(page_counter).zfill(3) + '.' + output_file_ext
-            #image_out_path = image_out_path / image_out_name
             print(image_out_path / image_out_name)
             spread.save(image_out_path / image_out_name)
             page_counter +=1
 
-#repaginate_notebook(nb_dir_path=input_path)
-#base_input_path = input_path
-
-# get fieldbook folder paths
-input_path = Path(input_path)
-dir_list = os.listdir(input_path)
-
-
-"""
-for item in dir_list:
-    path = Path(item)
-    path = input_path.joinpath(path)
-    #path = path.absolute()
-    #print(path.is_dir())
-    if path.is_dir():
-        print(path)
-        repaginate_notebook(nb_dir_path=path)
-    else:
-        print('not dir:', path)
-"""
-
-# Starting to make each notebook configurable due to different sizes and layouts
+# Each notebook is configurable due to different sizes and layouts
 FN01 = {'directory':'FieldNotebook1_(BRIT-A-AR003-FN01)_1-646', 'spread_width_min':2800, 'pad':0.07}
 FN02 = {'directory':'FieldNotebook2_(BRIT-A-AR003-FN02)_845-1103', 'spread_width_min':2400, 'pad':0.03}
 FN03 = {'directory':'FieldNotebook3_(BRIT-A-AR003-FN03)_1117-1400', 'spread_width_min':2700, 'pad':0.02}
@@ -128,10 +89,9 @@ FN16 = {'directory':'FieldNotebook16(BRIT-A-AR003-FN16)_15381-15481', 'spread_wi
 FN17 = {'directory':'FieldNotebook17(BRIT-A-AR003-FN17)_15482-15616', 'spread_width_min':2400, 'pad_l':0.05, 'pad_r':0.05}
 FN18 = {'directory':'FieldNotebook18(BRIT-A-AR003-FN18)_15617-15725', 'spread_width_min':2400, 'pad_l':0.05, 'pad_r':0.05}
 FN19 = {'directory':'FieldNotebook19(BRIT-A-AR003-FN19)_15726-15950', 'spread_width_min':2400, 'pad_l':0.05, 'pad_r':0.05}
-#repaginate_notebook(nb_base_path='original_tiffs', nb_params=FN01)
 
-#fn_list = [FN01,FN02,FN03,FN06,FN07,FN08,FN09,FN10,FN11,FN12,FN13,FN14,FN15,FN16,FN17,FN18,FN19]
-fn_list = [FN01,FN02]
+fn_list = [FN01,FN02,FN03,FN06,FN07,FN08,FN09,FN10,FN11,FN12,FN13,FN14,FN15,FN16,FN17,FN18,FN19]
+#fn_list = [FN01,FN02]
 
 for notebook in fn_list:
     repaginate_notebook(nb_base_path=input_path, nb_params=notebook)
