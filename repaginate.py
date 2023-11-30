@@ -42,10 +42,12 @@ def repaginate_notebook(nb_base_path=None, nb_params=None):
         spread_width, height = spread.size
         if spread_width > spread_width_min:
             #spread.show()
-            # Crop left page
             page_width = math.floor(spread_width/2)
-            page_width = page_width + (page_width * pad_l) # padding to crop past center of images
-            left = spread.crop((0,0,page_width,height))
+            
+            # Crop left page
+            page_width_l = page_width + (page_width * pad_l) # padding to crop past center of images
+            print('page_width_l:', page_width_l, 'pad_l:', pad_l)
+            left = spread.crop((0,0,page_width_l,height))
             #print(spread_width)
             
             image_out_path = Path(output_path)
@@ -57,8 +59,10 @@ def repaginate_notebook(nb_base_path=None, nb_params=None):
             page_counter +=1
 
             # Crop right page
-            page_width = page_width + (page_width * pad_r)
-            right = spread.crop((spread_width - page_width,0,spread_width,height))
+
+            page_width_r = page_width + (page_width * pad_r)
+            print('page_width_r:', page_width_r, 'pad_r:', pad_r)
+            right = spread.crop((spread_width - page_width_r,0,spread_width,height))
             #right.show()
             image_out_path = Path(output_path)
             image_out_name = notebook_ID + '_' + str(page_counter).zfill(3) + '.' + output_file_ext
@@ -106,10 +110,10 @@ FN03 = {'directory':'FieldNotebook3_(BRIT-A-AR003-FN03)_1117-1400', 'spread_widt
 FN06 = {'directory':'FieldNotebook6(BRIT-A-AR003-FN06)_2379-2427', 'spread_width_min':2700, 'pad':0.05}
 FN07 = {'directory':'FieldNotebook7(BRIT-A-AR003-FN07)_2774-3118', 'spread_width_min':2500, 'pad_l':0.12, 'pad_r':-0.13}
 FN08 = {'directory':'FieldNotebook8(BRIT-A-AR003-FN08)_3119-3693', 'spread_width_min':2500, 'pad_l':0.12, 'pad_r':-0.1}
-
-
+FN09 = {'directory':'FieldNotebook9(BRIT-A-AR003-FN09)_3694-4049', 'spread_width_min':2500, 'pad_l':0.1, 'pad_r':-0.1}
+FN10 = {'directory':'FieldNotebook10(BRIT-A-AR003-FN10)_4050-4374', 'spread_width_min':2500, 'pad_l':0.05, 'pad_r':0.00}
 #repaginate_notebook(nb_base_path='original_tiffs', nb_params=FN01)
-repaginate_notebook(nb_base_path='original_tiffs', nb_params=FN08)
+repaginate_notebook(nb_base_path='original_tiffs', nb_params=FN10)
 
 """
 'FieldNotebook1_(BRIT-A-AR003-FN01)_1-646'
