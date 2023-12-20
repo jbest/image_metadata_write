@@ -2,14 +2,15 @@ from pathlib import Path
 import glob
 
 from exiftool import ExifToolHelper
-input_path = '/media/jbest/data21/Carlquist_notebooks_repaginate/metadata_tests/test1/'
-
+#input_path = '/media/jbest/data21/Carlquist_notebooks_repaginate/metadata_tests/test1/'
+input_path = '/media/jbest/data21/Carlquist_notebooks_repaginate/paginated_tiffs/'
 
 
 
 #output_directory = Path(input_path)
 #output_directory = Path(input_path)
-images = glob.glob(input_path + '**/*.jpg', recursive = True)
+#images = glob.glob(input_path + '**/*.jpg', recursive = True)
+images = glob.glob(input_path + '**/*.tif', recursive = True)
 
 for image in images:
     image_path = Path(image)
