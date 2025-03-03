@@ -3,9 +3,12 @@ import glob
 
 from exiftool import ExifToolHelper
 #input_path = '/media/jbest/data21/Carlquist_notebooks_repaginate/metadata_tests/test1/'
-input_path = '/media/jbest/data21/Carlquist_notebooks_repaginate/paginated_tiffs/'
-
-
+#input_path = '/media/jbest/data21/Carlquist_notebooks_repaginate/paginated_tiffs/'
+#input_path = '/media/jbest/data3/BRIT_git/Carlquist_notebooks_repaginate/repaginated_tiffs/'
+#FN21 did not need cropping, was scanned as single pages
+#input_path = '/media/jbest/data3/BRIT_git/Carlquist_notebooks_repaginate/repaginated_tiffs/BRIT-A-AR003-FN21/'
+# loose notebooks
+input_path = '/media/jbest/data3/BRIT_git/Carlquist_notebooks_repaginate/paginated_tiffs_pre-meta/paginated_loose_tiffs/'
 
 #output_directory = Path(input_path)
 #output_directory = Path(input_path)
