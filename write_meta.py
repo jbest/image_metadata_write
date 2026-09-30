@@ -8,7 +8,8 @@ from exiftool import ExifToolHelper
 #FN21 did not need cropping, was scanned as single pages
 #input_path = '/media/jbest/data3/BRIT_git/Carlquist_notebooks_repaginate/repaginated_tiffs/BRIT-A-AR003-FN21/'
 # loose notebooks
-input_path = '/media/jbest/data3/BRIT_git/Carlquist_notebooks_repaginate/paginated_tiffs_pre-meta/paginated_loose_tiffs/'
+#input_path = '/media/jbest/data3/BRIT_git/Carlquist_notebooks_repaginate/paginated_tiffs_pre-meta/paginated_loose_tiffs/'
+input_path = '/media/jbest/data3/BRIT_git/Carlquist_notebooks_repaginate/repaginated_tiffs/BRIT-A-AR003-FN20/'
 
 #output_directory = Path(input_path)
 #output_directory = Path(input_path)
